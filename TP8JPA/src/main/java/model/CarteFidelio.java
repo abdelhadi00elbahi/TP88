@@ -1,8 +1,8 @@
 package model;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import model.Client;
 
 import javax.persistence.*;
 
