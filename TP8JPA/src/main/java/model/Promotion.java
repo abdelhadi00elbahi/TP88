@@ -10,7 +10,7 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @ToString
-public class Promotion {
+    public class Promotion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

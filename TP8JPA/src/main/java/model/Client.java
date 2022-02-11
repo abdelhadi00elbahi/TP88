@@ -8,8 +8,10 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity(name = "TClients")
 
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name="client_type")
+@DiscriminatorValue("client")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

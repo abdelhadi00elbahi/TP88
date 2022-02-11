@@ -18,9 +18,7 @@ public class applicationRunner {
 
 
         Client client = new Client("OMAR");
-        CarteFidelio carteFidelio = new CarteFidelio("A29930489");
-        carteFidelio.setClient(client);
-        client.setCarteFidelio(carteFidelio);
+
         ctrl.save(client);
     }
 

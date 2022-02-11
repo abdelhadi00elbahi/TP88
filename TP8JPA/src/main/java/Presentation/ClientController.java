@@ -1,10 +1,14 @@
 package Presentation;
 
 import model.Client;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import service.ClientService;
-
+@Controller("ctrl")
 public class ClientController {
+    @Autowired
     ClientService service;
+
 
     public void setService(ClientService service) {
         this.service = service;
