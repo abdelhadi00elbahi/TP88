@@ -14,12 +14,24 @@ import java.util.List;
 public class applicationRunner {
     public static void main(String[] args) {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
-        ClientController ctrl = (ClientController) ctx.getBean("cont1");
-
+        ClientController ctrl = (ClientController) ctx.getBean("ctrl");
 
         Client client = new Client("OMAR");
+        Client client2 = new Client("Said");
+        Client client3 = new Client("Ahmed");
+        client=ctrl.save(client);
+        client2=ctrl.save(client2);
+        client3=ctrl.save(client3);
 
-        ctrl.save(client);
+        ctrl.getAll().stream()
+                .forEach(i-> System.out.println(i));
+        System.out.println(ctrl.getOne(1));
+        client.setName("Hassan");
+        ctrl.modify(client);
+        ctrl.remove(2);
+        ctrl.getAll().stream()
+               .forEach(i-> System.out.println(i));
+
     }
 
 

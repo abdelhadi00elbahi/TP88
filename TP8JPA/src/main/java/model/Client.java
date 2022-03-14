@@ -8,7 +8,7 @@ import java.util.List;
 
 @Getter
 @Setter
-
+@Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name="client_type")
 @DiscriminatorValue("client")
@@ -19,7 +19,9 @@ public class Client {
     private List<Facture> factures;
     public long id ;
     public String name;
-    @JoinTable(name="my_join_table_client_promotion",joinColumns = @JoinColumn(
+
+
+   /* @JoinTable(name="my_join_table_client_promotion",joinColumns = @JoinColumn(
             name = "client_fk",
             referencedColumnName = "id"
     ),
@@ -28,9 +30,9 @@ public class Client {
                     referencedColumnName = "id"
             ))
     private List<Promotion> promotions;
-    @OneToOne(cascade = {CascadeType.PERSIST},mappedBy = "client")
-    private CarteFidelio carteFidelio;
-
+    //@OneToOne(cascade = {CascadeType.PERSIST},mappedBy = "client")
+   // private CarteFidelio carteFidelio;
+*/
 
     public Client() {
     }
