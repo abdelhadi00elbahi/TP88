@@ -1,21 +1,22 @@
 package dao;
 
 import model.Client;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 
+@Repository
 public class ClientdaoImpl implements Clientdao{
-    EntityManagerFactory emf= Persistence.createEntityManagerFactory("unit_clients");
-    EntityManager em=emf.createEntityManager();
+
+    @PersistenceContext
+    EntityManager em;
     @Override
+
     public Client save(Client c) {
 
-        em.getTransaction().begin();
-        em.persist(c);
-        em.getTransaction().commit();
 
+        em.persist(c);
 
         return c;
     }

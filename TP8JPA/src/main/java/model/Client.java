@@ -3,21 +3,40 @@ package model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
-@Entity(name = "TClients")
-
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name="client_type")
+@DiscriminatorValue("client")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
+    private List<Facture> factures;
     public long id ;
     public String name;
+
+
+   /* @JoinTable(name="my_join_table_client_promotion",joinColumns = @JoinColumn(
+            name = "client_fk",
+            referencedColumnName = "id"
+    ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "promotion_fk",
+                    referencedColumnName = "id"
+            ))
+    private List<Promotion> promotions;
+    //@OneToOne(cascade = {CascadeType.PERSIST},mappedBy = "client")
+   // private CarteFidelio carteFidelio;
+*/
+
+    public Client() {
+    }
+
     public  Client(String name)
     {
         this.id=id;

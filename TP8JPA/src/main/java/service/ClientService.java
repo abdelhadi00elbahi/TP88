@@ -3,10 +3,13 @@ package service;
 
 import model.Client;
 
+import java.util.List;
+
 public interface ClientService {
 
-    Client save(Client c);
-    Client modify(Client c);
-    void removeById(long id);
-    Client getById(long id);
+    Client save(Client clt);
+    Client modify(Client clt);
+    void remove(long idClt);
+    Client getOne(long idClt);
+    List<Client> getAll();
 }
